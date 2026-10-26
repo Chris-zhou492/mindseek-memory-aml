@@ -1,0 +1,22 @@
+services:
+  memory:
+    build: .
+    image: mindseek-memory-aml:1.0.0
+    restart: unless-stopped
+    init: true
+    env_file: .env
+    environment:
+      SQLITE_PATH: /data/memory.sqlite3
+    expose: ["8000"]
+    volumes:
+      - memory-data:/data
+    stop_grace_period: 30m
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    logging:
+      driver: local
+      options:
+        max-size: "10m"
+        max-file: "2"
+volumes:
+  memory-data:

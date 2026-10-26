@@ -1,0 +1,44 @@
+# Fill on the deployment host; this template is not an actual AML submission.
+system_name: MindSeek Memory
+version: 1.0.0
+track: textual
+division: academic
+add_url: https://REPLACE_WITH_PUBLIC_HOST/add
+search_url: https://REPLACE_WITH_PUBLIC_HOST/search
+health_url: https://REPLACE_WITH_PUBLIC_HOST/health
+authentication: X-Api-Key
+memory_system_key: PROVIDE_SEPARATELY_VIA_AML_SECURE_FORM
+add_protocol: synchronous-http-200
+initial_add_concurrency: 1
+initial_search_concurrency: 1
+provider_models:
+  profile: gpt-4o-mini
+  embedding: text-embedding-v4
+  reranker: deepseek-chat
+provider_disclosure:
+  profile:
+    provider: CloseAI
+    connection: third-party OpenAI-compatible relay, not a direct OpenAI API connection
+    base_url: https://api.openai-proxy.org/v1
+    endpoint: https://api.openai-proxy.org/v1/chat/completions
+    requested_model: gpt-4o-mini
+    credentials: CloseAI-issued key, injected privately on the deployment host
+    upstream_routing: managed by CloseAI; not independently verified by this package
+    organizer_approval: pending AML review of the disclosed provider route
+  embedding:
+    provider: Alibaba Cloud DashScope official API
+    base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    requested_model: text-embedding-v4
+  reranker:
+    provider: DeepSeek official API
+    base_url: https://api.deepseek.com
+    requested_model: deepseek-chat
+storage: SQLite single node, dedicated persistent volume
+source_version: MANIFEST.json file hashes
+public_repository: REQUIRED_PARTICIPANT_PUBLIC_URL_AND_FROZEN_REVISION
+authors: REQUIRED_PARTICIPANT_DISCLOSURE
+technical_report: REQUIRED_PARTICIPANT_REPORT_URL
+reused_work_and_changes: See NOTICE and METHOD.md; complete participant attribution before submission
+capacity_and_limits: See README.md; Full capacity and target-host load remain to be measured
+retention: Delete evaluation data and backups within 30 days after the run
+official_smoke_status: NOT_RUN_REQUIRES_PUBLIC_DEPLOYMENT_AND_AML_EVAL_KEY

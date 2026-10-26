@@ -1,0 +1,17 @@
+services:
+  caddy:
+    image: caddy:2.8.4-alpine
+    restart: unless-stopped
+    environment:
+      MEMORY_PUBLIC_HOST: ${MEMORY_PUBLIC_HOST:?Set a public DNS hostname in .env}
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      memory:
+        condition: service_healthy
+volumes:
+  caddy-data:
+  caddy-config:

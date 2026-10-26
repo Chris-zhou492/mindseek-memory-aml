@@ -1,0 +1,10 @@
+*
+!Dockerfile
+!pyproject.toml
+!LICENSE
+!NOTICE
+!memory_service/
+!memory_service/*.py
+!deployment/
+!deployment/*.py
+**/__pycache__

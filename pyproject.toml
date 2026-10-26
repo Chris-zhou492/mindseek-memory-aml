@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mindseek-memory-aml"
+version = "1.0.0"
+description = "Standalone AML Textual Add/Search memory service"
+requires-python = ">=3.12"
+dependencies = ["fastapi==0.115.8", "uvicorn==0.34.0", "pydantic==2.10.4", "python-dotenv==1.0.1"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["memory_service", "deployment"]
+
+[tool.hatch.envs.runtime]
+python = "3.12"
+path = ".venv"
+skip-install = true
+dependencies = ["fastapi==0.115.8", "uvicorn==0.34.0", "pydantic==2.10.4", "python-dotenv==1.0.1"]

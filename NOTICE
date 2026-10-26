@@ -1,0 +1,18 @@
+MindSeek memory service deployment snapshot
+
+Packaged from the agent-memory-leaderboard-local/memory_service directory
+of a Mem0 working tree, with separate deployment wrappers and configuration.
+The root repository's Apache-2.0 LICENSE is included without removing its terms.
+
+Mem0 repository: https://github.com/mem0ai/mem0
+Original repository authors: Mem0 maintainers and contributors.
+This standalone runtime does not import or deploy the Mem0 SDK.
+
+Integration contract reference:
+https://github.com/AML-memory/agent-memory-leaderboard
+https://agentmemories.ai/api-guide
+No benchmark datasets, answer/scoring pipelines, upstream Git repositories,
+credentials, or local run artifacts are included in this archive.
+
+The final submitting team must verify and disclose ownership and attribution
+for its local modifications, public source repository and technical report.

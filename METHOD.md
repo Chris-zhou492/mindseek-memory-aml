@@ -1,0 +1,15 @@
+# Method and deployment changes
+
+Runtime: Python 3.12, FastAPI, SQLite/FTS5; no dependency on the Mem0 SDK, PostgreSQL, dataset loaders, answer generators, or evaluators.
+
+Provider disclosure for the organizers: the profile component requests `gpt-4o-mini` through the **CloseAI** third-party OpenAI-compatible relay at `https://api.openai-proxy.org/v1` (`POST /chat/completions`). This is not a direct connection to OpenAI's official API. CloseAI controls forwarding and upstream routing; this package records the requested model and configured endpoint, without independently certifying that routing. Credentials are supplied privately at deployment. Embeddings use Alibaba Cloud DashScope's official text-embedding-v4 endpoint, and the separate reranker uses DeepSeek's official endpoint. Organizer approval of the disclosed relay route remains pending.
+
+Add preserves the supplied user/session scope and timestamps, checks request idempotency, extracts grounded personal facts from user-role messages using GPT-4o-mini, and synchronously persists source records and Qwen text-embedding-v4 vectors. Fact quotes must match their cited source. Invalid fact batches are omitted after correction attempts while source messages remain eligible for storage. Infrastructure/provider failures do not acknowledge success.
+
+Search retrieves within the exact user scope, combines vector and lexical evidence, and asks a separate DeepSeek reranker to assign relevance scores to the supplied candidates. It returns stored evidence in rank order and at most top_k results. It does not invoke an answer model or a scoring pipeline. Multiple-choice options may inform relevance selection; gold answers are never inputs.
+
+Compared with the local smoke configuration, this deployment enables the existing source-record index and introduces bounded profile batches with global source-index adjustment. Original text and source spans are retained. This resolves oversized document embedding inputs when source boundaries are available; indivisible units above the documented supported bound receive 422 before any provider call or write. The wrapper enforces the Academic profile/embedding models and disables optional LLM planners and experimental event/calculation features. The independent DeepSeek reranker is retained.
+
+SHA-256 hashes in MANIFEST.json identify the exact exported working-tree files, including uncommitted local changes. The Git HEAD alone does not identify this package. No claimed paper result, official AML smoke, Full score, throughput, or public deployment is implied by this archive.
+
+The package was assembled from `agent-memory-leaderboard-local/memory_service` in the Mem0 workspace and the standalone deployment templates. See NOTICE for attribution. Before submission, the participant must supply their own public source URL, authorship, any reused paper/repository references, technical report, and a complete change disclosure. Do not describe all local modifications as original without checking ownership.
