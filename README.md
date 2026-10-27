@@ -1,6 +1,6 @@
 # MindSeek Memory — AML Textual / Academic
 
-这是独立的 Add/Search 服务部署包，运行时不依赖 Mem0 主仓库、评测脚本或数据集。
+MindSeek Memory 是独立部署的记忆管理系统，提供同步 Add/Search API。系统采用 Python、FastAPI 和 SQLite/FTS5，运行时不需要评测脚本或数据集。
 
 包内包括 Python memory 服务、部署入口、Dockerfile、Compose、HTTPS 代理、配置示例、方法说明、提交材料模板与文件校验清单。没有 `.env`、可用密钥、历史数据库、日志、测试集、答案或评分程序。
 

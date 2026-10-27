@@ -1,6 +1,6 @@
 {
   "name": "mindseek-memory-aml-textual-20261026-r3",
-  "created_utc": "2026-10-26T12:25:26.739477+00:00",
+  "created_utc": "2026-10-26T20:25:26.739477+08:00",
   "source_git_head": "c514116ffc36b98ffd2e731deebd53062f1156d7",
   "source_kind": "working-tree snapshot; file hashes below define the packaged version",
   "track": "Textual",
@@ -62,10 +62,10 @@
     "memory_service/state_recall.py": "15c51d9e077978459a7ecfe8c457463f8c45e96442ff7f4e45c189723ab536bd",
     "memory_service/storage.py": "e12e6ac91d8a533b7cecf51a5c999e987a9d64b0940490d292d0f740b133294c",
     "memory_service/structured_profile.py": "c9f1d3bec2a67fa61d3bf002baedeffe52de89062047f1e2c2c846b4b031bc4b",
-    "METHOD.md": "a355dd6e064ae71cee3638f56786ac88e59cb0070592c47de9d6707e11bdfc8e",
+    "METHOD.md": "2bf91b8d75fd12b321c2ec784dd161af48c77ad5b40e1c0737b3ec0ecc42fc7d",
     "NOTICE": "8204ef266dd5b1cfcebf35e6046720d4f973d289982353b07817882aebbcab31",
     "pyproject.toml": "c45e5cfd239810d81bd59d6baae9108328a0619111783e329f7c7b9fcb8b9321",
-    "README.md": "0bc8b221dad7f88b925881fe78bb339f21cb56c30fe4d42637a5cd1dd669714c",
+    "README.md": "089db1810da625190a79ec8aabfbd00d921ea497f774d6395481795f5a297af7",
     "SUBMISSION.yaml": "447f1cdb3584fbbf02082ec5f8c36277627c5b576ee2524302972a855f180f6f"
   },
   "credential_scan": "passed; no local env, keys, databases, logs or evaluation data included",

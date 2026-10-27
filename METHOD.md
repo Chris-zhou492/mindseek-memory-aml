@@ -1,6 +1,6 @@
 # Method and deployment changes
 
-Runtime: Python 3.12, FastAPI, SQLite/FTS5; no dependency on the Mem0 SDK, PostgreSQL, dataset loaders, answer generators, or evaluators.
+MindSeek Memory is an independently deployed memory management system with synchronous Add/Search APIs. Runtime: Python 3.12, FastAPI, SQLite/FTS5; no dependency on PostgreSQL, dataset loaders, answer generators, or evaluators.
 
 Provider disclosure for the organizers: the profile component requests `gpt-4o-mini` through the **CloseAI** third-party OpenAI-compatible relay at `https://api.openai-proxy.org/v1` (`POST /chat/completions`). This is not a direct connection to OpenAI's official API. CloseAI controls forwarding and upstream routing; this package records the requested model and configured endpoint, without independently certifying that routing. Credentials are supplied privately at deployment. Embeddings use Alibaba Cloud DashScope's official text-embedding-v4 endpoint, and the separate reranker uses DeepSeek's official endpoint. Organizer approval of the disclosed relay route remains pending.
 
@@ -12,4 +12,4 @@ Compared with the local smoke configuration, this deployment enables the existin
 
 SHA-256 hashes in MANIFEST.json identify the exact exported working-tree files, including uncommitted local changes. The Git HEAD alone does not identify this package. No claimed paper result, official AML smoke, Full score, throughput, or public deployment is implied by this archive.
 
-The package was assembled from `agent-memory-leaderboard-local/memory_service` in the Mem0 workspace and the standalone deployment templates. See NOTICE for attribution. Before submission, the participant must supply their own public source URL, authorship, any reused paper/repository references, technical report, and a complete change disclosure. Do not describe all local modifications as original without checking ownership.
+The standalone distribution includes the memory service, deployment entry point, Docker and Compose configuration, HTTPS proxy, and submission documentation. See NOTICE and LICENSE for source and license information. Submission materials must include authorship, applicable prior-work references, a technical report, and a complete method-change disclosure.
